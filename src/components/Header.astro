@@ -1,5 +1,28 @@
 ---
 ---
-<div>
-Header - tilføj navigation mm.
+<div x-data="{ showmenu: false }" class="p-4 fixed top-4 w-full z-10" >
+    <div id="navbar" class="flex flex-row justify-between">
+    <div id="logo">
+      <a href="/">
+        <img src="/logo.svg" alt="logo" class="hover:opacity-75"/>
+      </a>
+    </div>
+    <nav id="desktopmenu" class="hidden lg:block">
+    <ul class="flex flex-row gap-4 mr-8">
+    <li class="hover:opacity-75 text-black font-bold"><a href="/registrer">INSPIRATION</a></li>
+    <li class="hover:opacity-75 text-black font-bold"><a href="/ressourcer">PROCESS</a></li>
+    <li class="hover:opacity-75 text-black font-bold"><a href="/howto">RESULTAT</a></li>
+    </ul>
+    </nav>
+    
+<button id="burgermenu" class="font-bold pr-4 lg:hidden hover:opacity-75" x-on:click="showmenu = ! showmenu">Menu</button>
+</div>
+<nav id="mobilmenu" class="fixed right-8 flex flex-col content-center pt-4" 
+x-show="showmenu" x-transition x-on:click="showmenu = false" x-on:click.outside="showmenu = false">
+<ul >
+    <li class="hover:opacity-75 font-bold"><a href="/registrer">INSPIRATION</a></li>
+    <li class="hover:opacity-75 font-bold"><a href="/ressourcer">PROCESS</a></li>
+    <li class="hover:opacity-75 font-bold"><a href="/howto">RESULTAT</a></li>
+</ul>
+</nav>
 </div>
